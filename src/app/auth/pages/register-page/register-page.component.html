@@ -1,0 +1,55 @@
+<div class="bg-white white:bg-zinc-900 flex items-center justify-center min-h-screen">
+  <div
+    class="w-full md:w-11/12 lg:w-10/12 xl:w-8/12 mx-auto p-8 bg-white white:bg-zinc-900 rounded-lg shadow-xl flex flex-col md:flex-row">
+    <div class="md:w-1/2 md:mr-4 flex justify-center mb-6">
+      <img src="../../../../assets/images/auth/register.jpeg" alt="Login Illustration">
+    </div>
+    <div class="md:w-1/2 md:ml-4">
+      <h2 class="text-4xl font-bold text-center  dark:text-zinc-500 mb-8">¡Register!</h2>
+      <form autocomplete="off" [formGroup]="myForm" (ngSubmit)="register()">
+        <div class="mb-4" [ngStyle]="myForm.controls['nombre'].errors
+        ? {'border-bottom': '1.5px solid #ec1818', 'background-color': 'red' }:{}">
+          <input type="text" placeholder="name" formControlName="nombre"
+            class="w-full px-4 py-2 border rounded-lg text-zinc-700 dark:text-zinc-400 focus:outline-none focus:border-blue-500 dark:focus:border-red-400"
+            required>
+        </div>
+        <div class="mb-4" [ngStyle]="myForm.controls['edad'].errors && myForm.controls['edad'].touched
+                ?{'border-bottom': '1.5px solid #ec1818', 'background-color': 'red' }:{}">
+          <input type="text" placeholder="age" formControlName="edad"
+            class="w-full px-4 py-2 border rounded-lg text-zinc-700 dark:text-zinc-400 focus:outline-none focus:border-blue-500 dark:focus:border-blue-400"
+            required>
+        </div>
+        <div class="mb-4">
+          <select [(ngModel)]="selectValue" [ngModelOptions]="{standalone: true}"
+            class="w-full px-4 py-2 border rounded-lg text-zinc-700 dark:text-zinc-400 focus:outline-none focus:border-blue-500 dark:focus:border-blue-400">
+            <option value="femenino">Femenino</option>
+            <option value="masculino">Masculino</option>
+          </select>
+        </div>
+        <div class="mb-4" [ngStyle]="myForm.controls['email'].errors && myForm.touched
+                ? {'border-bottom': '1.5px solid #ec1818', 'background-color': 'red' }:{}">
+          <input placeholder="email" formControlName="email"
+            class="w-full px-4 py-2 border rounded-lg text-zinc-700 dark:text-zinc-400 focus:outline-none focus:border-blue-500 dark:focus:border-blue-400"
+            required>
+        </div>
+        <div class="mb-4" [ngStyle]="myForm.controls['password'].errors && myForm.touched
+        ? {'border-bottom': '1.5px solid #ec1818', 'background-color': 'red' }:{}">
+          <input type="password" placeholder="password" formControlName="password"
+            class="w-full px-4 py-2 border rounded-lg text-zinc-700 dark:text-zinc-400 focus:outline-none focus:border-blue-500 dark:focus:border-blue-400"
+            required>
+        </div>
+        <button [disabled]="myForm.invalid" type="submit" class="btn btn-primary w-full "> <i
+            class="bi bi-check me-1"></i>Register your account</button>
+      </form>
+      <div class="mt-2 text-center my-1">
+        <a routerLink="/auth/login" class="text-blue-500 dark:text-blue-400 hover:underline">Have any accounts
+          already?</a>
+      </div>
+      <div class="mt-2 text-center my-1">
+        <a routerLink="/auth/login/forgot_password" class="text-blue-500 dark:text-blue-400 hover:underline">ou already
+          have and account and you forgot the password?</a>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+
+
+<div class="bg-white white:bg-zinc-900 flex items-center justify-center min-h-screen">
+  <div
+    class="w-full md:w-11/12 lg:w-10/12 xl:w-8/12 mx-auto p-8 bg-white white:bg-zinc-900 rounded-lg shadow-xl flex flex-col md:flex-row">
+    <div class="md:w-1/2 md:mr-4 flex justify-center mb-6">
+      <img src="../../../../assets/images/auth/login.jpeg" alt="Login Illustration">
+    </div>
+    <div class="md:w-1/2 md:ml-4">
+      <h2 class="text-4xl font-bold text-center  dark:text-zinc-500 mb-8">¡Login!</h2>
+      <form autocomplete="off" [formGroup]="myForm" (ngSubmit)="login()">
+        <div class="mb-4">
+          <input type="email" placeholder="email" formControlName="email"
+            class="w-full px-4 py-2 border rounded-lg text-zinc-700 dark:text-zinc-400 focus:outline-none focus:border-blue-500 dark:focus:border-blue-400"
+            required>
+        </div>
+        <div class="mb-4">
+          <input type="password" placeholder="password" formControlName="password"
+            class="w-full px-4 py-2 border rounded-lg text-zinc-700 dark:text-zinc-400 focus:outline-none focus:border-blue-500 dark:focus:border-blue-400"
+            required>
+        </div>
+        <div class="mb-4">
+          <!--  <select
+                  class="w-full px-4 py-3 border rounded-lg text-zinc-700 dark:text-zinc-200 focus:outline-none focus:border-blue-500 dark:focus:border-blue-400"
+                  >
+                  <option value="1">Opción 1</option>
+                  <option value="2">Opción 2</option>
+                  <option value="3">Opción 3</option>
+                </select> -->
+        </div>
+        <div class="mb-6 flex items-center">
+          <input type="checkbox" id="remember" class="mr-2">
+          <label for="remember" class="text-base text-zinc-600 dark:text-zinc-400">Remember password</label>
+        </div>
+        <button  [disabled]="myForm.invalid" type="submit" class="btn btn-primary w-full"
+          > <i class="bi bi-check me-1"></i>Sign in to account</button>
+      </form>
+      <div class="mt-6 text-center">
+        <a href="#" class="text-blue-500 dark:text-blue-400 hover:underline"
+        routerLink="/auth/login/forgot_password"
+        >Forgot password?</a>
+      </div>
+      <div class="mt-2 text-center">
+        <a routerLink="/auth/register" class="text-blue-500 dark:text-blue-400 hover:underline">Don't have an account?</a>
+      </div>
+    </div>
+  </div>
+</div>

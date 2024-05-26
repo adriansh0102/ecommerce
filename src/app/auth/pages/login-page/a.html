@@ -1,0 +1,36 @@
+<section class="section-login">
+    <div class="form-box">
+        <div class="form-value">
+          <form autocomplete="off" [formGroup]="myForm" (ngSubmit)="login()">
+                <h2 class="text-primary">Login</h2>
+                <div class="inputbox">
+                    <!-- <ion-icon name="mail-outline"></ion-icon>  -->
+                    <input type="email" formControlName="email" placeholder="Correo electrónico">
+                    <label>Email</label>
+                </div>
+                <div class="inputbox" >
+                    <!-- <ion-icon name="lock-closed-outline"></ion-icon>  -->
+                    <input  type="password" formControlName="password" placeholder="Ingrese su contraseña">
+                    <label>Password</label>
+                </div>
+                <div class="forget">
+                    <label>
+                        <input type="checkbox">
+                        Remember Me
+                    </label>
+                    <a href="#">
+                        <!-- Forgot Password -->
+                    </a>
+                </div>
+                <button [disabled]="myForm.invalid" type="submit" class="btn btn-primary" >Login</button>
+                <div class="register">
+                    <p>Don't have an account?
+                        <a routerLink="/auth/register" class="text-primary">Sign Up</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+  </section>
+  
+  
