@@ -1,4 +1,9 @@
 
+img {
+  width: 100%;
+  height: 100%;
+}
+
 .alert {
   position: fixed;
   max-width: 500px;

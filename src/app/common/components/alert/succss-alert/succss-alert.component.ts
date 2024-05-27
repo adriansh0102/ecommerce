@@ -1,41 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertService } from '../../../alert.service';
 import { CommonModule } from '@angular/common';
+import { Alert } from '../../../interfaces/alert.interface';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-succss-alert',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './succss-alert.component.html',
   styleUrl: './succss-alert.component.css'
 })
-export class SuccssAlertComponent {
+export class SuccssAlertComponent implements OnInit {
 
-  message:any
-  public showAlert:boolean = false;
+  public showAlert: boolean = false;
+  public alert: Alert = {
+    title: '',
+    message: '',
+    percent: 0,
+    img:'',
+    time: 0,
+    type: '',
+    url: '',
+  }
 
-  constructor( private alertService: AlertService) { }
+  constructor(
+    private alertService: AlertService
+  ) { }
 
-  ngOnInit(){
-    this.alertService.alertSuccess$.subscribe((res:any) => {
+  ngOnInit(): void {
+    this.alertService.alertSuccess$.subscribe((res: Alert) => {
       this.showAlert = true;
-      this.message = res;
-
+      this.alert = res;
       setTimeout(() => {
         this.showAlert = false;
-
       }, res.time)
-
-
-
-
-
-      console.log(this.message);
     })
   }
 
-  pepe(){
-    console.log('pepe');
-
+  closeAlert() {
+    this.showAlert = false;
   }
 }
